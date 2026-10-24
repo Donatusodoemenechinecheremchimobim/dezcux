@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #0b0a08;
+  --color-gold: #d4ac56;
+  --color-gold-soft: #ecd49a;
+  --color-cream: #f6efe0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-ink);
+  /* Lenis drives real scroll; keep native smooth off to avoid double-easing */
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Lenis required styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+/* Soft radial glow used behind headlines, colored from the gold palette */
+.glow-text {
+  text-shadow: 0 0 60px rgba(212, 172, 86, 0.25);
+}
+
+/* Hide scrollbar visually while Lenis remains fully functional */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
